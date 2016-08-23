@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="resources/angular.min.js"></script>
+    <script src="controller/home.js"></script>
+    <link rel="stylesheet" href="resources/angular-material.min.css">
+	<script src="resources/angular-animate.min.js"></script>
+	<script src="resources/angular-aria.min.js"></script>
+	<script src="resources/angular-messages.min.js"></script>
+	<script src="resources/angular-material.min.js"></script>
+</head>
+<body ng-app="scrapper" ng-controller="AppCtrl" layout="row" ng-cloak>
+    <md-sidenav  ng-click="openLeftMenu()" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-whiteframe-z2" >
+    <header class="nav-header">
+      <a ng-href="/" class="docs-logo" href="/">
+        <img src="assets/svg/google-play-newsstand-apk.png" alt="">
+      </a>
+    </header>
+    <md-content>
+    <md-subheader class="md-no-sticky">Sources</md-subheader>
+
+          <md-list>
+            <!--md-list-item ng-repeat="it in users" class="md-1-line"-->
+            <md-list-item ng-click="doit()" ng-repeat="it in sourses">
+              <p> {{it}} </p>
+          </md-list-item>
+          </md-list>
+          </md-content>
+        </md-sidenav>
+
+        <div flex layout="column">
+
+            <md-toolbar layout="row" class="md-whiteframe-5dp md-toolbar-tools">
+              <md-button class="menu" hide-gt-sm ng-click="openLeftMenu()" aria-label="Show User List">
+                <md-icon md-svg-icon="menu"></md-icon>
+              </md-button>
+             <h3>News All Over</h3>
+             <span flex></span>
+             <md-button class="md-icon-button" aria-label="More">
+                <md-icon md-svg-icon="more"></md-icon>
+            </md-button>
+            </md-toolbar>
+
+            <md-content style="height: 600px;" flex md-theme="altTheme">
+             <section>
+              <md-subheader class="md-primary">Just arrived</md-subheader>
+              <md-card flex-gt-sm="90" flex-gt-md="80" ng-repeat="n in new">
+                <md-card-title>{{n.title}}</md-card-title>
+              </md-card>
+              </section>
+             <section>
+              <md-subheader class="md-warn">Earlier Feeds</md-subheader>
+              <md-card flex-gt-sm="90" flex-gt-md="80" ng-repeat="o in old">
+                <md-card-title>{{o.title}}</md-card-title>
+              </md-card>
+              </section>
+            </md-content>
+
+        </div>
+        
+</body>
+</html>
